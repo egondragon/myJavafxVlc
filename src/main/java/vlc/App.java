@@ -5,19 +5,16 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+// Menus
+import vlc.menus.AudioMenu;
 import vlc.menus.MediaMenu;
-import vlc.menus.myToolbarIcon;
+import vlc.menus.PlaybackMenu;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 
 public class App extends Application {
@@ -81,8 +78,18 @@ public class App extends Application {
 
         // Media Menu
         MediaMenu mediaMenu = new MediaMenu(this.stage, this.root, this.player, toolbar);
+
+        // Playback Menu
+        PlaybackMenu playbackMenu = new PlaybackMenu(this.stage, this.root, this.player, toolbar);
+
+        // Audio Menu
+        AudioMenu audioMenu = new AudioMenu(this.stage, this.root, this.player, toolbar);
+
+        // add all menus in menubar and toolbar (inside the classes)
         MenuBar menubar = new MenuBar();
         menubar.getMenus().add(mediaMenu.getMenu());
+        menubar.getMenus().add(playbackMenu.getMenu());
+        menubar.getMenus().add(audioMenu.getMenu());
 
         // add Menu bar
         VBox top_vbox = new VBox();

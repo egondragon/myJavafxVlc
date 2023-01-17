@@ -18,8 +18,7 @@ import java.io.FilenameFilter;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 
-public class MediaMenu {
-    Menu menu;
+public class MediaMenu extends myMenu {
     public MediaMenu(Stage parentStage, BorderPane rootPane, Player player, ToolBar parentToolbar) {
         menu = new Menu("_Media");
         ArrayList<myMenuItem> menuItemList = new ArrayList<>();
@@ -122,9 +121,5 @@ public class MediaMenu {
         parentToolbar.getItems().add(toolbarNetworkIcon);
         parentToolbar.getItems().add(toolbarExitIcon);
 
-    }
-
-    public Menu getMenu() {
-        return this.menu;
     }
 }
