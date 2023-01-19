@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import vlc.menus.AudioMenu;
 import vlc.menus.MediaMenu;
 import vlc.menus.PlaybackMenu;
+import vlc.menus.VideoMenu;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -85,11 +86,15 @@ public class App extends Application {
         // Audio Menu
         AudioMenu audioMenu = new AudioMenu(this.stage, this.root, this.player, toolbar);
 
+        // video Menu
+        VideoMenu videoMenu = new VideoMenu(this.stage, this.root, this.player, toolbar);
+
         // add all menus in menubar and toolbar (inside the classes)
         MenuBar menubar = new MenuBar();
         menubar.getMenus().add(mediaMenu.getMenu());
         menubar.getMenus().add(playbackMenu.getMenu());
         menubar.getMenus().add(audioMenu.getMenu());
+        menubar.getMenus().add(videoMenu.getMenu());
 
         // add Menu bar
         VBox top_vbox = new VBox();
